@@ -6,6 +6,7 @@ import 'package:mikoxl/src/models/auth/list_action_response.dart';
 import 'package:mikoxl/src/models/auth/session.dart';
 import 'package:mikoxl/src/models/discover/discover_movies_response.dart';
 import 'package:mikoxl/src/models/discover/discover_params.dart';
+import 'package:mikoxl/src/models/episode/episode_detail.dart';
 import 'package:mikoxl/src/models/misc/change_item.dart';
 import 'package:mikoxl/src/models/misc/changes_response.dart';
 import 'package:mikoxl/src/models/misc/rating_response.dart';
@@ -16,6 +17,8 @@ import 'package:mikoxl/src/models/movie/genre.dart';
 import 'package:mikoxl/src/models/movie/image.dart';
 import 'package:mikoxl/src/models/movie/keyword.dart';
 import 'package:mikoxl/src/models/movie/list_details.dart';
+import 'package:mikoxl/src/models/movie/movie_credits.dart';
+import 'package:mikoxl/src/models/movie/movie_detail.dart';
 import 'package:mikoxl/src/models/movie/movie_list_response.dart';
 import 'package:mikoxl/src/models/movie/production.dart';
 import 'package:mikoxl/src/models/movie/recommendations_response.dart';
@@ -23,6 +26,8 @@ import 'package:mikoxl/src/models/movie/review.dart';
 import 'package:mikoxl/src/models/movie/translations.dart';
 import 'package:mikoxl/src/models/movie/video.dart';
 import 'package:mikoxl/src/models/movie/watch_providers.dart';
+import 'package:mikoxl/src/models/person/combined_credit.dart';
+import 'package:mikoxl/src/models/person/person_detail.dart';
 import 'package:mikoxl/src/models/search/search_multi_response.dart';
 import 'package:mikoxl/src/models/tv/content_ratings.dart';
 import 'package:mikoxl/src/models/tv/creator.dart';
@@ -32,6 +37,7 @@ import 'package:mikoxl/src/models/tv/season_summary.dart';
 import 'package:mikoxl/src/models/tv/translations.dart';
 import 'package:mikoxl/src/models/tv/tv_credits.dart';
 import 'package:mikoxl/src/models/tv/tv_genre.dart';
+import 'package:mikoxl/src/models/tv/tv_lists.dart';
 import 'package:mikoxl/src/models/tv/tv_show_detail.dart';
 
 @GenerateAdapters([
@@ -94,5 +100,22 @@ import 'package:mikoxl/src/models/tv/tv_show_detail.dart';
   AdapterSpec<TvCreditsResponse>(),
   AdapterSpec<TvGenre>(),
   AdapterSpec<TvShowDetail>(),
+  AdapterSpec<MovieDetail>(),
+  AdapterSpec<EpisodeDetail>(),
+  AdapterSpec<CrewMember>(),
+  AdapterSpec<GuestStar>(),
+    AdapterSpec<Genre>(),
+    AdapterSpec<SpokenLanguage>(),
+    AdapterSpec<TvTranslationData>(),
+    AdapterSpec<PersonCredits>(),
+    AdapterSpec<CastCredit>(),
+    AdapterSpec<CrewCredit>(),
+    AdapterSpec<PersonDetail>(),
+    AdapterSpec<TvListResponse>(),
+    AdapterSpec<TvSummary>(),
+    AdapterSpec<MovieCredits>(),
+    AdapterSpec<MovieCastMember>(),
+    AdapterSpec<MovieCrewMember>(),
+
 ])
 part 'hive_adapters.g.dart';

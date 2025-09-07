@@ -2540,3 +2540,991 @@ class TvShowDetailAdapter extends TypeAdapter<TvShowDetail> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+class MovieDetailAdapter extends TypeAdapter<MovieDetail> {
+  @override
+  final typeId = 53;
+
+  @override
+  MovieDetail read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return MovieDetail(
+      adult: fields[0] == null ? true : fields[0] as bool,
+      backdropPath: fields[1] as String?,
+      belongsToCollection: fields[2] as String?,
+      budget: fields[3] == null ? 0 : (fields[3] as num).toInt(),
+      genres: (fields[4] as List?)?.cast<Genre>(),
+      homepage: fields[5] as String?,
+      id: (fields[6] as num).toInt(),
+      imdbId: fields[7] as String?,
+      originalLanguage: fields[8] as String?,
+      originalTitle: fields[9] as String?,
+      overview: fields[10] as String?,
+      popularity: fields[11] == null ? 0.0 : (fields[11] as num).toDouble(),
+      posterPath: fields[12] as String?,
+      productionCompanies: (fields[13] as List?)?.cast<ProductionCompany>(),
+      productionCountries: (fields[14] as List?)?.cast<ProductionCountry>(),
+      releaseDate: fields[15] as String?,
+      revenue: fields[16] == null ? 0 : (fields[16] as num).toInt(),
+      runtime: fields[17] == null ? 0 : (fields[17] as num).toInt(),
+      spokenLanguages: (fields[18] as List?)?.cast<SpokenLanguage>(),
+      status: fields[19] as String?,
+      tagline: fields[20] as String?,
+      title: fields[21] as String,
+      video: fields[22] == null ? true : fields[22] as bool,
+      voteAverage: fields[23] == null ? 0.0 : (fields[23] as num).toDouble(),
+      voteCount: fields[24] == null ? 0 : (fields[24] as num).toInt(),
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, MovieDetail obj) {
+    writer
+      ..writeByte(25)
+      ..writeByte(0)
+      ..write(obj.adult)
+      ..writeByte(1)
+      ..write(obj.backdropPath)
+      ..writeByte(2)
+      ..write(obj.belongsToCollection)
+      ..writeByte(3)
+      ..write(obj.budget)
+      ..writeByte(4)
+      ..write(obj.genres)
+      ..writeByte(5)
+      ..write(obj.homepage)
+      ..writeByte(6)
+      ..write(obj.id)
+      ..writeByte(7)
+      ..write(obj.imdbId)
+      ..writeByte(8)
+      ..write(obj.originalLanguage)
+      ..writeByte(9)
+      ..write(obj.originalTitle)
+      ..writeByte(10)
+      ..write(obj.overview)
+      ..writeByte(11)
+      ..write(obj.popularity)
+      ..writeByte(12)
+      ..write(obj.posterPath)
+      ..writeByte(13)
+      ..write(obj.productionCompanies)
+      ..writeByte(14)
+      ..write(obj.productionCountries)
+      ..writeByte(15)
+      ..write(obj.releaseDate)
+      ..writeByte(16)
+      ..write(obj.revenue)
+      ..writeByte(17)
+      ..write(obj.runtime)
+      ..writeByte(18)
+      ..write(obj.spokenLanguages)
+      ..writeByte(19)
+      ..write(obj.status)
+      ..writeByte(20)
+      ..write(obj.tagline)
+      ..writeByte(21)
+      ..write(obj.title)
+      ..writeByte(22)
+      ..write(obj.video)
+      ..writeByte(23)
+      ..write(obj.voteAverage)
+      ..writeByte(24)
+      ..write(obj.voteCount);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MovieDetailAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class EpisodeDetailAdapter extends TypeAdapter<EpisodeDetail> {
+  @override
+  final typeId = 54;
+
+  @override
+  EpisodeDetail read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return EpisodeDetail(
+      airDate: fields[0] as String?,
+      crew: (fields[1] as List?)?.cast<CrewMember>(),
+      guestStars: (fields[2] as List?)?.cast<GuestStar>(),
+      name: fields[3] as String,
+      overview: fields[4] as String?,
+      id: (fields[5] as num).toInt(),
+      productionCode: fields[6] as String?,
+      runtime: (fields[7] as num?)?.toInt(),
+      seasonNumber: (fields[8] as num?)?.toInt(),
+      episodeNumber: (fields[9] as num?)?.toInt(),
+      stillPath: fields[10] as String?,
+      voteAverage: (fields[11] as num?)?.toDouble(),
+      voteCount: (fields[12] as num?)?.toInt(),
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, EpisodeDetail obj) {
+    writer
+      ..writeByte(13)
+      ..writeByte(0)
+      ..write(obj.airDate)
+      ..writeByte(1)
+      ..write(obj.crew)
+      ..writeByte(2)
+      ..write(obj.guestStars)
+      ..writeByte(3)
+      ..write(obj.name)
+      ..writeByte(4)
+      ..write(obj.overview)
+      ..writeByte(5)
+      ..write(obj.id)
+      ..writeByte(6)
+      ..write(obj.productionCode)
+      ..writeByte(7)
+      ..write(obj.runtime)
+      ..writeByte(8)
+      ..write(obj.seasonNumber)
+      ..writeByte(9)
+      ..write(obj.episodeNumber)
+      ..writeByte(10)
+      ..write(obj.stillPath)
+      ..writeByte(11)
+      ..write(obj.voteAverage)
+      ..writeByte(12)
+      ..write(obj.voteCount);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EpisodeDetailAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class CrewMemberAdapter extends TypeAdapter<CrewMember> {
+  @override
+  final typeId = 55;
+
+  @override
+  CrewMember read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return CrewMember(
+      department: fields[0] as String?,
+      job: fields[1] as String?,
+      creditId: fields[2] as String?,
+      adult: fields[3] == null ? true : fields[3] as bool,
+      gender: fields[4] == null ? 0 : (fields[4] as num).toInt(),
+      id: fields[5] == null ? 0 : (fields[5] as num).toInt(),
+      knownForDepartment: fields[6] as String?,
+      name: fields[7] as String,
+      originalName: fields[8] as String?,
+      popularity: fields[9] == null ? 0.0 : (fields[9] as num).toDouble(),
+      profilePath: fields[10] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, CrewMember obj) {
+    writer
+      ..writeByte(11)
+      ..writeByte(0)
+      ..write(obj.department)
+      ..writeByte(1)
+      ..write(obj.job)
+      ..writeByte(2)
+      ..write(obj.creditId)
+      ..writeByte(3)
+      ..write(obj.adult)
+      ..writeByte(4)
+      ..write(obj.gender)
+      ..writeByte(5)
+      ..write(obj.id)
+      ..writeByte(6)
+      ..write(obj.knownForDepartment)
+      ..writeByte(7)
+      ..write(obj.name)
+      ..writeByte(8)
+      ..write(obj.originalName)
+      ..writeByte(9)
+      ..write(obj.popularity)
+      ..writeByte(10)
+      ..write(obj.profilePath);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CrewMemberAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class GuestStarAdapter extends TypeAdapter<GuestStar> {
+  @override
+  final typeId = 56;
+
+  @override
+  GuestStar read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return GuestStar(
+      character: fields[0] as String?,
+      creditId: fields[1] as String?,
+      order: fields[2] == null ? 0 : (fields[2] as num).toInt(),
+      adult: fields[3] == null ? true : fields[3] as bool,
+      gender: fields[4] == null ? 0 : (fields[4] as num).toInt(),
+      id: fields[5] == null ? 0 : (fields[5] as num).toInt(),
+      knownForDepartment: fields[6] as String?,
+      name: fields[7] as String,
+      originalName: fields[8] as String?,
+      popularity: fields[9] == null ? 0.0 : (fields[9] as num).toDouble(),
+      profilePath: fields[10] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, GuestStar obj) {
+    writer
+      ..writeByte(11)
+      ..writeByte(0)
+      ..write(obj.character)
+      ..writeByte(1)
+      ..write(obj.creditId)
+      ..writeByte(2)
+      ..write(obj.order)
+      ..writeByte(3)
+      ..write(obj.adult)
+      ..writeByte(4)
+      ..write(obj.gender)
+      ..writeByte(5)
+      ..write(obj.id)
+      ..writeByte(6)
+      ..write(obj.knownForDepartment)
+      ..writeByte(7)
+      ..write(obj.name)
+      ..writeByte(8)
+      ..write(obj.originalName)
+      ..writeByte(9)
+      ..write(obj.popularity)
+      ..writeByte(10)
+      ..write(obj.profilePath);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GuestStarAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class GenreAdapter extends TypeAdapter<Genre> {
+  @override
+  final typeId = 57;
+
+  @override
+  Genre read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return Genre(
+      id: fields[0] == null ? 0 : (fields[0] as num).toInt(),
+      name: fields[1] as String,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, Genre obj) {
+    writer
+      ..writeByte(2)
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.name);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GenreAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class SpokenLanguageAdapter extends TypeAdapter<SpokenLanguage> {
+  @override
+  final typeId = 58;
+
+  @override
+  SpokenLanguage read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return SpokenLanguage(
+      englishName: fields[0] as String?,
+      iso6391: fields[1] as String?,
+      name: fields[2] as String,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, SpokenLanguage obj) {
+    writer
+      ..writeByte(3)
+      ..writeByte(0)
+      ..write(obj.englishName)
+      ..writeByte(1)
+      ..write(obj.iso6391)
+      ..writeByte(2)
+      ..write(obj.name);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SpokenLanguageAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class TvTranslationDataAdapter extends TypeAdapter<TvTranslationData> {
+  @override
+  final typeId = 59;
+
+  @override
+  TvTranslationData read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return TvTranslationData(
+      name: fields[0] as String?,
+      overview: fields[1] as String?,
+      homepage: fields[2] as String?,
+      tagline: fields[3] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, TvTranslationData obj) {
+    writer
+      ..writeByte(4)
+      ..writeByte(0)
+      ..write(obj.name)
+      ..writeByte(1)
+      ..write(obj.overview)
+      ..writeByte(2)
+      ..write(obj.homepage)
+      ..writeByte(3)
+      ..write(obj.tagline);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TvTranslationDataAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class PersonCreditsAdapter extends TypeAdapter<PersonCredits> {
+  @override
+  final typeId = 60;
+
+  @override
+  PersonCredits read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return PersonCredits(
+      cast: (fields[0] as List).cast<CastCredit>(),
+      crew: (fields[1] as List).cast<CrewCredit>(),
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, PersonCredits obj) {
+    writer
+      ..writeByte(2)
+      ..writeByte(0)
+      ..write(obj.cast)
+      ..writeByte(1)
+      ..write(obj.crew);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is PersonCreditsAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class CastCreditAdapter extends TypeAdapter<CastCredit> {
+  @override
+  final typeId = 61;
+
+  @override
+  CastCredit read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return CastCredit(
+      adult: fields[0] == null ? true : fields[0] as bool,
+      backdropPath: fields[1] as String?,
+      genreIds: (fields[2] as List?)?.cast<int>(),
+      id: fields[3] == null ? 0 : (fields[3] as num).toInt(),
+      originalLanguage: fields[4] as String?,
+      originalTitle: fields[5] as String?,
+      overview: fields[6] as String?,
+      popularity: fields[7] == null ? 0.0 : (fields[7] as num).toDouble(),
+      posterPath: fields[8] as String?,
+      releaseDate: fields[9] as String?,
+      title: fields[10] as String?,
+      video: fields[11] == null ? true : fields[11] as bool,
+      voteAverage: fields[12] == null ? 0.0 : (fields[12] as num).toDouble(),
+      voteCount: fields[13] == null ? 0 : (fields[13] as num).toInt(),
+      character: fields[14] as String?,
+      creditId: fields[15] as String?,
+      order: fields[16] == null ? 0 : (fields[16] as num).toInt(),
+      mediaType: fields[17] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, CastCredit obj) {
+    writer
+      ..writeByte(18)
+      ..writeByte(0)
+      ..write(obj.adult)
+      ..writeByte(1)
+      ..write(obj.backdropPath)
+      ..writeByte(2)
+      ..write(obj.genreIds)
+      ..writeByte(3)
+      ..write(obj.id)
+      ..writeByte(4)
+      ..write(obj.originalLanguage)
+      ..writeByte(5)
+      ..write(obj.originalTitle)
+      ..writeByte(6)
+      ..write(obj.overview)
+      ..writeByte(7)
+      ..write(obj.popularity)
+      ..writeByte(8)
+      ..write(obj.posterPath)
+      ..writeByte(9)
+      ..write(obj.releaseDate)
+      ..writeByte(10)
+      ..write(obj.title)
+      ..writeByte(11)
+      ..write(obj.video)
+      ..writeByte(12)
+      ..write(obj.voteAverage)
+      ..writeByte(13)
+      ..write(obj.voteCount)
+      ..writeByte(14)
+      ..write(obj.character)
+      ..writeByte(15)
+      ..write(obj.creditId)
+      ..writeByte(16)
+      ..write(obj.order)
+      ..writeByte(17)
+      ..write(obj.mediaType);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CastCreditAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class CrewCreditAdapter extends TypeAdapter<CrewCredit> {
+  @override
+  final typeId = 62;
+
+  @override
+  CrewCredit read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return CrewCredit(
+      adult: fields[0] == null ? true : fields[0] as bool,
+      backdropPath: fields[1] as String?,
+      genreIds: (fields[2] as List?)?.cast<int>(),
+      id: fields[3] == null ? 0 : (fields[3] as num).toInt(),
+      originalLanguage: fields[4] as String?,
+      originalTitle: fields[5] as String?,
+      overview: fields[6] as String?,
+      popularity: fields[7] == null ? 0.0 : (fields[7] as num).toDouble(),
+      posterPath: fields[8] as String?,
+      releaseDate: fields[9] as String?,
+      title: fields[10] as String?,
+      video: fields[11] == null ? true : fields[11] as bool,
+      voteAverage: fields[12] == null ? 0.0 : (fields[12] as num).toDouble(),
+      voteCount: fields[13] == null ? 0 : (fields[13] as num).toInt(),
+      creditId: fields[14] as String?,
+      department: fields[15] as String?,
+      job: fields[16] as String?,
+      mediaType: fields[17] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, CrewCredit obj) {
+    writer
+      ..writeByte(18)
+      ..writeByte(0)
+      ..write(obj.adult)
+      ..writeByte(1)
+      ..write(obj.backdropPath)
+      ..writeByte(2)
+      ..write(obj.genreIds)
+      ..writeByte(3)
+      ..write(obj.id)
+      ..writeByte(4)
+      ..write(obj.originalLanguage)
+      ..writeByte(5)
+      ..write(obj.originalTitle)
+      ..writeByte(6)
+      ..write(obj.overview)
+      ..writeByte(7)
+      ..write(obj.popularity)
+      ..writeByte(8)
+      ..write(obj.posterPath)
+      ..writeByte(9)
+      ..write(obj.releaseDate)
+      ..writeByte(10)
+      ..write(obj.title)
+      ..writeByte(11)
+      ..write(obj.video)
+      ..writeByte(12)
+      ..write(obj.voteAverage)
+      ..writeByte(13)
+      ..write(obj.voteCount)
+      ..writeByte(14)
+      ..write(obj.creditId)
+      ..writeByte(15)
+      ..write(obj.department)
+      ..writeByte(16)
+      ..write(obj.job)
+      ..writeByte(17)
+      ..write(obj.mediaType);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CrewCreditAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class PersonDetailAdapter extends TypeAdapter<PersonDetail> {
+  @override
+  final typeId = 63;
+
+  @override
+  PersonDetail read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return PersonDetail(
+      adult: fields[0] == null ? true : fields[0] as bool,
+      alsoKnownAs: (fields[1] as List?)?.cast<String>(),
+      biography: fields[2] as String?,
+      birthday: fields[3] as String?,
+      deathday: fields[4] as String?,
+      gender: fields[5] == null ? 0 : (fields[5] as num).toInt(),
+      homepage: fields[6] as String?,
+      id: (fields[7] as num).toInt(),
+      imdbId: fields[8] as String?,
+      knownForDepartment: fields[9] as String?,
+      name: fields[10] as String,
+      placeOfBirth: fields[11] as String?,
+      popularity: fields[12] == null ? 0.0 : (fields[12] as num).toDouble(),
+      profilePath: fields[13] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, PersonDetail obj) {
+    writer
+      ..writeByte(14)
+      ..writeByte(0)
+      ..write(obj.adult)
+      ..writeByte(1)
+      ..write(obj.alsoKnownAs)
+      ..writeByte(2)
+      ..write(obj.biography)
+      ..writeByte(3)
+      ..write(obj.birthday)
+      ..writeByte(4)
+      ..write(obj.deathday)
+      ..writeByte(5)
+      ..write(obj.gender)
+      ..writeByte(6)
+      ..write(obj.homepage)
+      ..writeByte(7)
+      ..write(obj.id)
+      ..writeByte(8)
+      ..write(obj.imdbId)
+      ..writeByte(9)
+      ..write(obj.knownForDepartment)
+      ..writeByte(10)
+      ..write(obj.name)
+      ..writeByte(11)
+      ..write(obj.placeOfBirth)
+      ..writeByte(12)
+      ..write(obj.popularity)
+      ..writeByte(13)
+      ..write(obj.profilePath);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is PersonDetailAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class TvListResponseAdapter extends TypeAdapter<TvListResponse> {
+  @override
+  final typeId = 64;
+
+  @override
+  TvListResponse read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return TvListResponse(
+      page: (fields[0] as num).toInt(),
+      results: (fields[1] as List).cast<TvSummary>(),
+      totalPages: fields[2] == null ? 0 : (fields[2] as num).toInt(),
+      totalResults: fields[3] == null ? 0 : (fields[3] as num).toInt(),
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, TvListResponse obj) {
+    writer
+      ..writeByte(4)
+      ..writeByte(0)
+      ..write(obj.page)
+      ..writeByte(1)
+      ..write(obj.results)
+      ..writeByte(2)
+      ..write(obj.totalPages)
+      ..writeByte(3)
+      ..write(obj.totalResults);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TvListResponseAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class TvSummaryAdapter extends TypeAdapter<TvSummary> {
+  @override
+  final typeId = 65;
+
+  @override
+  TvSummary read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return TvSummary(
+      backdropPath: fields[0] as String?,
+      firstAirDate: fields[1] as String?,
+      genreIds: (fields[2] as List?)?.cast<int>(),
+      id: (fields[3] as num).toInt(),
+      name: fields[4] as String,
+      originCountry: (fields[5] as List?)?.cast<String>(),
+      originalLanguage: fields[6] as String?,
+      originalName: fields[7] as String?,
+      overview: fields[8] as String?,
+      popularity: fields[9] == null ? 0.0 : (fields[9] as num).toDouble(),
+      posterPath: fields[10] as String?,
+      voteAverage: fields[11] == null ? 0.0 : (fields[11] as num).toDouble(),
+      voteCount: fields[12] == null ? 0 : (fields[12] as num).toInt(),
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, TvSummary obj) {
+    writer
+      ..writeByte(13)
+      ..writeByte(0)
+      ..write(obj.backdropPath)
+      ..writeByte(1)
+      ..write(obj.firstAirDate)
+      ..writeByte(2)
+      ..write(obj.genreIds)
+      ..writeByte(3)
+      ..write(obj.id)
+      ..writeByte(4)
+      ..write(obj.name)
+      ..writeByte(5)
+      ..write(obj.originCountry)
+      ..writeByte(6)
+      ..write(obj.originalLanguage)
+      ..writeByte(7)
+      ..write(obj.originalName)
+      ..writeByte(8)
+      ..write(obj.overview)
+      ..writeByte(9)
+      ..write(obj.popularity)
+      ..writeByte(10)
+      ..write(obj.posterPath)
+      ..writeByte(11)
+      ..write(obj.voteAverage)
+      ..writeByte(12)
+      ..write(obj.voteCount);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TvSummaryAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class MovieCreditsAdapter extends TypeAdapter<MovieCredits> {
+  @override
+  final typeId = 66;
+
+  @override
+  MovieCredits read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return MovieCredits(
+      id: (fields[0] as num).toInt(),
+      cast: (fields[1] as List).cast<MovieCastMember>(),
+      crew: (fields[2] as List).cast<MovieCrewMember>(),
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, MovieCredits obj) {
+    writer
+      ..writeByte(3)
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.cast)
+      ..writeByte(2)
+      ..write(obj.crew);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MovieCreditsAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class MovieCastMemberAdapter extends TypeAdapter<MovieCastMember> {
+  @override
+  final typeId = 67;
+
+  @override
+  MovieCastMember read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return MovieCastMember(
+      adult: fields[0] == null ? true : fields[0] as bool,
+      gender: fields[1] == null ? 0 : (fields[1] as num).toInt(),
+      id: fields[2] == null ? 0 : (fields[2] as num).toInt(),
+      knownForDepartment: fields[3] as String?,
+      name: fields[4] as String,
+      originalName: fields[5] as String?,
+      popularity: fields[6] == null ? 0.0 : (fields[6] as num).toDouble(),
+      profilePath: fields[7] as String?,
+      castId: fields[8] == null ? 0 : (fields[8] as num).toInt(),
+      character: fields[9] as String?,
+      creditId: fields[10] as String?,
+      order: fields[11] == null ? 0 : (fields[11] as num).toInt(),
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, MovieCastMember obj) {
+    writer
+      ..writeByte(12)
+      ..writeByte(0)
+      ..write(obj.adult)
+      ..writeByte(1)
+      ..write(obj.gender)
+      ..writeByte(2)
+      ..write(obj.id)
+      ..writeByte(3)
+      ..write(obj.knownForDepartment)
+      ..writeByte(4)
+      ..write(obj.name)
+      ..writeByte(5)
+      ..write(obj.originalName)
+      ..writeByte(6)
+      ..write(obj.popularity)
+      ..writeByte(7)
+      ..write(obj.profilePath)
+      ..writeByte(8)
+      ..write(obj.castId)
+      ..writeByte(9)
+      ..write(obj.character)
+      ..writeByte(10)
+      ..write(obj.creditId)
+      ..writeByte(11)
+      ..write(obj.order);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MovieCastMemberAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class MovieCrewMemberAdapter extends TypeAdapter<MovieCrewMember> {
+  @override
+  final typeId = 68;
+
+  @override
+  MovieCrewMember read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return MovieCrewMember(
+      adult: fields[0] == null ? true : fields[0] as bool,
+      gender: fields[1] == null ? 0 : (fields[1] as num).toInt(),
+      id: fields[2] == null ? 0 : (fields[2] as num).toInt(),
+      knownForDepartment: fields[3] as String?,
+      name: fields[4] as String,
+      originalName: fields[5] as String?,
+      popularity: fields[6] == null ? 0.0 : (fields[6] as num).toDouble(),
+      profilePath: fields[7] as String?,
+      creditId: fields[8] as String?,
+      department: fields[9] as String?,
+      job: fields[10] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, MovieCrewMember obj) {
+    writer
+      ..writeByte(11)
+      ..writeByte(0)
+      ..write(obj.adult)
+      ..writeByte(1)
+      ..write(obj.gender)
+      ..writeByte(2)
+      ..write(obj.id)
+      ..writeByte(3)
+      ..write(obj.knownForDepartment)
+      ..writeByte(4)
+      ..write(obj.name)
+      ..writeByte(5)
+      ..write(obj.originalName)
+      ..writeByte(6)
+      ..write(obj.popularity)
+      ..writeByte(7)
+      ..write(obj.profilePath)
+      ..writeByte(8)
+      ..write(obj.creditId)
+      ..writeByte(9)
+      ..write(obj.department)
+      ..writeByte(10)
+      ..write(obj.job);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MovieCrewMemberAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
